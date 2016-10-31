@@ -17,28 +17,57 @@ public class MathLab02st
 		int den = Integer.parseInt(strNbr2);
 
 		Rational r = new Rational(num,den);
-		JOptionPane.showMessageDialog(null,r.getNum()+"/"+r.getDen()+" equals "+r.getDecimal());
-          
+		JOptionPane.showMessageDialog(null,r.getOriginal() + " equals " + 
+				r.getDecimal() + "\n and reduces to " + r.getRational());
+
 		System.exit(0);
 	}
 }
 
 				
 
-class Rational
+class Rational<reduce>
 {
-		
+	private int num;
+	private int den;
+    private double d;
 //	Rational
+    public Rational(int numerator, int denominator)
+    {
+       num = numerator;
+       den = denominator;
+    }
+	
+
 	
 //	getNum
+	public int getNum()
+	{
+		return num;
+	}
 	
 //	getDen
-
+	public int getDen()
+{
+		return den;
+}
 //	getDecimal
-
+	public double getDecimal()
+	{
+		return (double) num/den;
+	}
 //	getRational 
-	
+    public String getRational()
+    {
+    double gcf = getGCF(num,den);
+    return (num/gcf)+"/"+(den/gcf);
+    }
 //	getOriginal
+    public String getOriginal()
+    {
+
+      	return num + "/"+ den;
+    }
 
 //	reduce
 
