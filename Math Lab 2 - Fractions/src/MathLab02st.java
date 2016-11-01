@@ -36,9 +36,7 @@ class Rational<reduce>
     {
        num = numerator;
        den = denominator;
-    }
-	
-
+    }	
 	
 //	getNum
 	public int getNum()
@@ -65,7 +63,6 @@ class Rational<reduce>
 //	getOriginal
     public String getOriginal()
     {
-
       	return num + "/"+ den;
     }
 
