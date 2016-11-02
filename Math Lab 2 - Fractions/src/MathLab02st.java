@@ -28,45 +28,49 @@ public class MathLab02st
 
 class Rational<reduce>
 {
-	private int num;
-	private int den;
-    private double d;
+	private int firstNum, firstDen, num, den;
 //	Rational
     public Rational(int numerator, int denominator)
     {
-       num = numerator;
-       den = denominator;
+       firstNum = numerator;
+       firstDen = denominator;
+       reduce();
     }	
 	
 //	getNum
 	public int getNum()
 	{
-		return num;
+		return firstNum;
 	}
 	
 //	getDen
 	public int getDen()
 {
-		return den;
+		return firstDen;
 }
 //	getDecimal
 	public double getDecimal()
 	{
-		return (double) num/den;
+		return (double) firstNum/firstDen;
 	}
 //	getRational 
     public String getRational()
     {
-    double gcf = getGCF(num,den);
-    return (num/gcf)+"/"+(den/gcf);
+    return num+"/"+den;
     }
 //	getOriginal
     public String getOriginal()
     {
-      	return num + "/"+ den;
+      	return firstNum + "/"+ firstDen;
     }
-
 //	reduce
+    private void reduce()
+    {
+    	int gcf = getGCF(firstNum,firstDen);
+    	num = firstNum/gcf;
+    	den = firstDen/gcf;
+//    	System.out.println(num + " " + den);
+    }
 
 	private int getGCF(int n1,int n2)
 	{
